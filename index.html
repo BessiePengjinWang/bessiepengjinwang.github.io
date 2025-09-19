@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Bessie Pengjin Wang — Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 2rem; line-height: 1.6; }
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .card { border: 1px solid #eee; border-radius: 12px; padding: 1rem; }
+    .title { font-size: 1.8rem; font-weight: 700; margin-bottom: .25rem; }
+    .sub { color: #666; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <h1 class="title">Hi, I'm Bessie 👋</h1>
+  <div class="sub">Data Scientist • ML Researcher • Consultant</div>
+
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>🎵 Music Rating Database</h3>
+      <p>Flask + PostgreSQL clone of RYM.</p>
+      <p><a href="https://github.com/BessiePengjinWang/Music-Rating-Database-Project">View code</a> · <a href="#">Demo (soon)</a></p>
+    </div>
+    <div class="card">
+      <h3>🚗 Car Resale Price Prediction</h3>
+      <p>R pipeline for price forecasts, clustering, and recs.</p>
+      <p><a href="https://github.com/BessiePengjinWang/US-Car-Resale-Price-Prediction">View code</a> · <a href="#">Paper (soon)</a></p>
+    </div>
+  </div>
+
+  <!-- Easter egg -->
+  <script>
+  (() => {
+    const TARGET = "bessie";
+    let buffer = "";
+    const FUN_FACTS = [
+      "Fun fact #1 — placeholder about Bessie.",
+      "Fun fact #2 — placeholder about Bessie.",
+      "Fun fact #3 — placeholder about Bessie."
+    ];
+    const toast = document.createElement("div");
+    Object.assign(toast.style, {
+      position:"fixed", left:"50%", bottom:"24px", transform:"translateX(-50%)",
+      maxWidth:"90%", padding:"12px 16px", borderRadius:"12px",
+      background:"rgba(0,0,0,.85)", color:"#fff",
+      fontFamily:"system-ui,-apple-system,Segoe UI,Roboto,sans-serif",
+      fontSize:"14px", lineHeight:"1.4", boxShadow:"0 8px 24px rgba(0,0,0,.25)",
+      opacity:"0", pointerEvents:"none", transition:"opacity .2s, transform .2s",
+      zIndex:"9999"
+    });
+    document.addEventListener("DOMContentLoaded", () => document.body.appendChild(toast));
+    const showToast = (msg) => {
+      toast.textContent = msg; toast.style.opacity = "1"; toast.style.transform = "translate(-50%,-4px)";
+      setTimeout(()=>{ toast.style.opacity = "0"; toast.style.transform = "translate(-50%,0)"; }, 2800);
+    };
+    const randomFact = () => FUN_FACTS[Math.floor(Math.random()*FUN_FACTS.length)];
+    window.addEventListener("keydown", (e) => {
+      const k = e.key; if (k.length === 1) {
+        buffer = (buffer + k.toLowerCase()).slice(-TARGET.length);
+        if (buffer === TARGET) { showToast(randomFact()); buffer = ""; }
+      } else if (k === "Escape") buffer = "";
+    });
+  })();
+  </script>
+</body>
+</html>
